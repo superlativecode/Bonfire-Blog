@@ -54,3 +54,5 @@ TODO
 
 * Better Tags
 * Better comment approval process
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/superlativecode/bonfire-blog/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
