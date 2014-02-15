@@ -1,7 +1,7 @@
 Bonfire Blog
 ============
 
-A simple blog with nested comments, search, markdown editor, tag clouds, and more. This module is Designed for Bonfire and CodeIgniter.
+A simple blog with nested comments, search, markdown editor, tag clouds, and more. This module is designed for Bonfire and CodeIgniter.
 
 ###Dependices not included
 
