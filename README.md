@@ -1,17 +1,15 @@
-Bonfire-Blog
+Bonfire Blog
 ============
 
-A simple blog with nested comments, search, markdown editor, tag clouds, and more. 
+A simple blog with nested comments, search, markdown editor, tag clouds, and more. This module is Designed for Bonfire and CodeIgniter.
 
-Dependices not included
-=======================
+###Dependices not included
 
-*   [Bonfire](https://github.com/ci-bonfire/Bonfire)
-*   [Bonfire-Comments](https://github.com/superlativecode/Bonfire-Comments)
-*   [Bonfire-Images](https://github.com/superlativecode/Bonfire-Images)
+*   [Bonfire](https://github.com/ci-bonfire/Bonfire) by [Superlative Code](http://superlativecode.com/)
+*   [Bonfire-Comments](https://github.com/superlativecode/Bonfire-Comments) by [Superlative Code](http://superlativecode.com/)
+*   [Bonfire-Images](https://github.com/superlativecode/Bonfire-Images) by [Superlative Code](http://superlativecode.com/)
 
-Installation
-============
+###Installation
 
 **Note:** We assume you have a working instance of Bonfire running.
 
@@ -20,14 +18,14 @@ Installation
 3. `git clone https://github.com/superlativecode/Bonfire-Comments ./comments`
 4. `git clone https://github.com/superlativecode/Bonfire-Images ./images`
 5.  Login to the admin panel and migrate to the latest version on all three of those modules
-6.  Move `/application/modules/blog/public/assets/images/spritemap*.png` to `/public/assets/images`
+6.  Move `/application/modules/images/public/assets/images/spritemap*.png` to `/public/assets/images`
 7.  Copy the libraries in `/application/modules/blog/libraries` to `/application/libaries`
 8.  Create folder `/public/uploads/` with permissions for read and write
 9.  Make sure each module has the correct permissions to access it
+10. Add ./public/uploads to your .gitignore
 
 
-Features
-========
+###Features
 
 * Nested Comments
 * Approve Comments
@@ -41,16 +39,14 @@ Features
 * Post Stages (draft, ready for review, and published)
 * Author
 
-Libraries Used
-==============
+###Libraries Used
 
-* [Taggly](https://github.com/EllisLab/CodeIgniter/wiki/Taggly)
-* [Parsedown](http://parsedown.org/)
-* [CodeIgniter Advanced Images](https://github.com/jenssegers/CodeIgniter-Advanced-Images)
-* [Dropzone.js](http://www.dropzonejs.com/)
+*   [Taggly](https://github.com/EllisLab/CodeIgniter/wiki/Taggly)
+*   [Parsedown](http://parsedown.org/)
+*   [CodeIgniter Advanced Images](https://github.com/jenssegers/CodeIgniter-Advanced-Images)
+*   [Dropzone.js](http://www.dropzonejs.com/)
 
-TODO
-====
+###TODO
 
 * Better Tags
 * Better comment approval process
