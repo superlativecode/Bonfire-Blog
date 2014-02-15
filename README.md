@@ -5,7 +5,7 @@ A simple blog with nested comments, search, markdown editor, tag clouds, and mor
 
 ###Dependices not included
 
-*   [Bonfire](https://github.com/ci-bonfire/Bonfire) by [Superlative Code](http://superlativecode.com/)
+*   [Bonfire](https://github.com/ci-bonfire/Bonfire)
 *   [Bonfire-Comments](https://github.com/superlativecode/Bonfire-Comments) by [Superlative Code](http://superlativecode.com/)
 *   [Bonfire-Images](https://github.com/superlativecode/Bonfire-Images) by [Superlative Code](http://superlativecode.com/)
 
