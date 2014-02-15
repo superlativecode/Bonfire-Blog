@@ -67,7 +67,7 @@
             <?=form_dropdown('user_id', $authors, isset($post->user_id) ? $post->user_id : set_value('user_id'))?>
         <?php endif; ?>
         <br>
-        <?php $this->load->view('images/content/index', array('images' => $post->images)); ?>
+        <?php $this->load->view('images/content/index', array('images' => isset($post->images) ? $post->images : false)); ?>
         
         <div class="form-actions">
             <input type="submit" name="submit" class="btn btn-primary" id="submit-all" value="Save Post" />

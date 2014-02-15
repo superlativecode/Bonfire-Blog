@@ -1,10 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
     $config['module_config'] = array(
         'name'          => 'Blog',
-        'description'   => 'Development Blog',
-        'author'        => 'Peter DeMartini',
+        'description'   => 'Blog with Comments and images',
+        'author'        => 'Superlative Code',
         'homepage'      => 'https://superlativecode.com/',
-        'version'       => '0.1',
+        'version'       => '0.6',
         'weights'       => array(
             'context'   => 0
         )

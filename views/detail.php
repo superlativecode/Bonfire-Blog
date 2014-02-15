@@ -22,17 +22,6 @@
             </footer>
         <?php endif; ?>
         <hr>
-        <div class="row-fluid">
-            <div class="span12 text-center">
-                <h4>Share it!</h4>
-                <div id="share-it">
-                    <div id="twitter" data-url="<?=current_url()?>" data-text="<?php e($post->title) ?>"></div>
-                    <div id="facebook" data-url="<?=current_url()?>" data-text="<?php e($post->title) ?>"></div>
-                    <div id="googleplus" data-url="<?=current_url()?>" data-text="<?php e($post->title) ?>"></div>
-                </div>
-            </div>
-        </div>
-        <hr>
         <?php $this->load->view('comments/comments'); ?>
         
     </div>

@@ -17,13 +17,13 @@
 <?php if($posts): ?>   
     <?php foreach($posts as $i => $post): ?> 
     <?=($i != 0 ? '<hr />' : '')?>
-    <div class="post row">
-        <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+    <div class="post row-fluid">
+        <div class="span2">
         <?php if(isset($post->images[0])): ?>            
             <a href="<?=site_url()?>blog/<?=$post->post_id?>/<?=$post->slug?>" title="<?=e($post->title)?>"><img src="<?=$post->images[0]->thumb_url?>" alt="<?=$post->images[0]->title?>" class="img-circle center-block" width="120px"></a>
         <?php endif; ?>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-9 col-lg-10">
+        <div class="span10">
             <h4><a href="<?=site_url()?>blog/<?=$post->post_id?>/<?=$post->slug?>" title="<?=e($post->title)?>"><?php e($post->title) ?></a> - <small class="subtitle"><?=date('F jS, Y', strtotime($post->release_date))?></small></h4>
             <?php if(!empty($post->excerpt)): ?>
                 <?php echo auto_typography(Parsedown::instance()->parse($post->excerpt)); ?>
@@ -32,19 +32,21 @@
             <?php endif; ?>
             <div class="hidden-phone pull-right">
                 <button onclick="javascript:window.location.href='<?=site_url()?>blog/<?=$post->post_id?>/<?=$post->slug?>#comments'" title="<?=e($post->title)?>" class="btn btn-default pull-right">
-                    <?=(!empty($post->comments) ? count($post->comments) : 0)?>&nbsp;&nbsp;<span class="glyphicon glyphicon-comment"></span>
+                    <?=(!empty($post->comments) ? count($post->comments) : 0)?> Comments
                 </button>
                 <button onclick="javascript:window.location.href='<?=site_url()?>blog/<?=$post->post_id?>/<?=$post->slug?>'" title="<?=e($post->title)?>" class="btn btn-default pull-right">
-                    Read More&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span>
+                    Read More</span>
                 </button>
             </div>
         </div>
-        <div class="visible-phone col-xs-12 col-sm-6 col-md-9 col-lg-10 text-center">
+        <div class="visible-phone span12 text-center">
             <button onclick="javascript:window.location.href='<?=site_url()?>blog/<?=$post->post_id?>/<?=$post->slug?>'" title="<?=e($post->title)?>" class="btn btn-default">
-                Read More&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span>
+                Read More
             </button>
+            <br>
+            <br>
             <button onclick="javascript:window.location.href='<?=site_url()?>blog/<?=$post->post_id?>/<?=$post->slug?>#comments'" title="<?=e($post->title)?>" class="btn btn-default">
-                <?=(!empty($post->comments) ? count($post->comments) : 0)?>&nbsp;&nbsp;<span class="glyphicon glyphicon-comment"></span>
+                <?=(!empty($post->comments) ? count($post->comments) : 0)?> Comments
             </button>
         </div>
     </div>

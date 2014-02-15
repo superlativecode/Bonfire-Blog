@@ -1,0 +1,25 @@
+#comments ul {
+	list-style:none;
+}
+
+#comments>.comments {
+	margin-left:0;
+	padding-left:0;
+}
+
+#comments .comment {
+	margin-bottom:0;
+	border-top:1px solid #eee;
+	border-right:1px solid #eee;
+	border-bottom:1px solid #eee;
+	font-size:14px!important;
+	padding: 5px;
+}
+
+#comments .comment p {
+    font-size: 13px !important;
+}
+
+.subtitle {
+	color:gray;
+}

@@ -13,13 +13,12 @@ class Blog extends Front_Controller
 		$this->load->helper('text');
         $this->load->helper('typography');
         $this->load->helper('form');
-        $this->load->helper('sef');
         $this->load->model('comments/comments_model');
 		
         $this->load->model('post_model');
-        Assets::clear_cache();
         Assets::add_module_js('comments', array('bootstrap-markdown.js', 'comments.js'));
-        Assets::add_module_css('comments', 'bootstrap-markdown.min.css');
+        Assets::add_module_css('comments', array('bootstrap-markdown.min.css'));
+        Assets::add_module_css('blog', array('blog.css'));
     }
 
     //--------------------------------------------------------------------
@@ -160,7 +159,7 @@ class Blog extends Front_Controller
 		if(!empty($_POST['comment_id'])){
     		$data['parent_id']    = $this->input->post('comment_id');
 		}
-		$data['approved']       = 0;
+		$data['approved'] = 0;
 
 		if ($type == 'insert')
 		{
@@ -182,5 +181,9 @@ class Blog extends Front_Controller
 		return $return;
 	}
     //--------------------------------------------------------------------
+    
+    private function is_editor(){
+        return $this->auth->has_permission('Images.Content.Edit');
+    }
 
 }

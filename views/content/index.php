@@ -17,13 +17,23 @@
             <tfoot>
                 <tr>
                     <td colspan="3">
-                        With selected:
-                        <input type="submit" name="delete" class="btn btn-danger" value="Delete">
-                        <?=form_label('Release Date', 'release_date')?>
-                        <input type="text" name="release_date" class="datetimepicker input-large" value="<?=date('Y-m-d H:i:s')?>" />
-                        <?=form_label('Stage', 'stage')?>
-                        <?=form_dropdown('stage', array('draft' => 'Draft', 'review' => 'Ready for Review', 'published' => 'Published'), isset($post->stage) ? $post->stage : set_value('stage'))?> 
-                        <input type="submit" name="update" class="btn btn-primary" value="Update">
+                        <strong>With selected:</strong><br>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><?=form_label('Release Date', 'release_date')?></th>
+                                    <th><?=form_label('Stage', 'stage')?></th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" name="release_date" class="datetimepicker input-large" value="<?=date('Y-m-d H:i:s')?>" /></td>
+                                    <td><?=form_dropdown('stage', array('draft' => 'Draft', 'review' => 'Ready for Review', 'published' => 'Published'), isset($post->stage) ? $post->stage : set_value('stage'))?></td>
+                                    <td><input type="submit" name="update" class="btn btn-primary" value="Update">&nbsp;&nbsp;<input type="submit" name="delete" class="btn btn-danger" value="Delete"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </td>
                 </tr>
             </tfoot>
@@ -49,7 +59,7 @@
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="7">
                         <br/>
                         <div class="alert alert-warning">
                             No Posts found.
