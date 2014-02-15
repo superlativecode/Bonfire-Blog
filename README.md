@@ -38,6 +38,7 @@ A simple blog with nested comments, search, markdown editor, tag clouds, and mor
 * Mass Update Posts
 * Post Stages (draft, ready for review, and published)
 * Author
+* Release Date
 
 ###Libraries Used
 
