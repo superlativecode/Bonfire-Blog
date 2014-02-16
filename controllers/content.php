@@ -97,11 +97,11 @@ class Content extends Admin_Controller
 
 				if ($result)
 				{
-					Template::set_message(count($checked) .' Post\'s we updated', 'success');
+					Template::set_message(count($checked) .' Posts we updated', 'success');
 				}
 				else
 				{
-					Template::set_message("Post's couldn't be updated. ". $this->post_model->error, 'error');
+					Template::set_message("Posts couldn't be updated. ". $this->post_model->error, 'error');
 				}
 			}
 		}
