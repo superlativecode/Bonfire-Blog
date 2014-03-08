@@ -34,7 +34,7 @@ class Content extends Admin_Controller
         Assets::add_module_js('images', array('dropzone.min.js', 'images.js'));
         Assets::add_module_css('images', array('dropzone.css'));
         
-        Assets::add_module_js('blog', array('bootstrap-markdown.js', 'blog.js'));
+        Assets::add_module_js('blog', array('bootstrap-markdown.js', 'blog.js', 'markdown.js', 'to-markdown.js'));
         
         Assets::add_module_css('blog', 'bootstrap-markdown.min.css');
        

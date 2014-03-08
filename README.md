@@ -3,6 +3,8 @@ Bonfire Blog
 
 A simple blog with nested comments, search, markdown editor, tag clouds, and more. This module is designed for Bonfire and CodeIgniter.
 
+**Created by [Superlative Code](http://superlativecode.com/)**. More info available [here](http://superlativecode.com/products/6/bonfire-blog).
+
 ###Dependancies not included
 
 *   [Bonfire](https://github.com/ci-bonfire/Bonfire)

@@ -62,12 +62,12 @@ class Post_model extends MY_Model
             foreach($results as &$item){
                 if(is_array($item)){
                     $item['images'] = $this->images_model->find_all($this->post_images_model->find_all($item['post_id']));
-                    $item['comments'] = $this->comments_model->where('post_id', $item['post_id'])->find_all();
+                    $item['comments'] = $this->comments_model->where('deleted', 0)->where('post_id', $item['post_id'])->find_all();
                     if(!empty($item['user_id']))
                         $item['author'] = $this->user_model->find_user_and_meta($item['user_id']);                    
                 }else{
                     $item->images = $this->images_model->find_all($this->post_images_model->find_all($item->post_id));
-                    $item->comments = $this->comments_model->where('post_id', $item->post_id)->find_all();
+                    $item->comments = $this->comments_model->where('deleted', 0)->where('post_id', $item->post_id)->find_all();
                     if(!empty($item->user_id))
                         $item->author = $this->user_model->find_user_and_meta($item->user_id);
                 }
@@ -87,12 +87,12 @@ class Post_model extends MY_Model
             $this->load->model('comments/comments_model');
             if(is_array($result)){
                 $result['images'] = $this->images_model->find_all($this->post_images_model->find_all($result['post_id']));
-                $result['comments'] = $this->comments_model->where('post_id', $result['post_id'])->find_all();
+                $result['comments'] = $this->comments_model->where('deleted', 0)->where('post_id', $result['post_id'])->find_all();
                 if(!empty($result['user_id']))
                     $result['author'] = $this->user_model->find_user_and_meta($result['user_id']);                    
             }else{
                 $result->images = $this->images_model->find_all($this->post_images_model->find_all($result->post_id));
-                $result->comments = $this->comments_model->where('post_id', $result->post_id)->find_all();
+                $result->comments = $this->comments_model->where('deleted', 0)->where('post_id', $result->post_id)->find_all();
                 if(!empty($result->user_id))
                     $result->author = $this->user_model->find_user_and_meta($result->user_id);
             }

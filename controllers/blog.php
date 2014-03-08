@@ -2,6 +2,7 @@
 
 class Blog extends Front_Controller
 {
+    var $stages = array();
 
     public function __construct()
     {
@@ -13,11 +14,13 @@ class Blog extends Front_Controller
 		$this->load->helper('text');
         $this->load->helper('typography');
         $this->load->helper('form');
+        $this->load->helper('sef');
         $this->load->model('comments/comments_model');
 		
         $this->load->model('post_model');
         Assets::add_module_js('comments', array('bootstrap-markdown.js', 'comments.js'));
-        Assets::add_module_css('comments', array('bootstrap-markdown.min.css'));
+        Assets::add_module_js('blog', array('markdown.js', 'to-markdown.js'));
+        Assets::add_module_css('comments', 'bootstrap-markdown.min.css');
         Assets::add_module_css('blog', array('blog.css'));
     }
 
@@ -25,16 +28,22 @@ class Blog extends Front_Controller
 
     public function index()
     {
-        $stages = array('published');
+        $this->stages = array('published');
         if($this->is_editor()){
-		    $stages[] = 'draft';
-		    $stages[] = 'review';
-		    $stages[] = '';
+		    $this->stages[] = 'draft';
+		    $this->stages[] = 'review';
+		    $this->stages[] = '';
         }
+        
+        Template::set('popular', $this->post_model->order_by('views', 'DESC')
+                                  ->where('deleted', 0)
+                                  ->where_in('stage', $this->stages)
+                                  ->limit(2)
+                                  ->find_all());
         
         $id = $this->uri->segment(2);
         if(!empty($id)){
-            if($post = $this->post_model->where('deleted', 0)->where_in('stage', $stages)->find($id)){
+            if($post = $this->post_model->where('deleted', 0)->where_in('stage', $this->stages)->find($id)){
                 $this->detail($post);
                 return;       
             }
@@ -46,7 +55,7 @@ class Blog extends Front_Controller
         $limit = $this->settings_lib->item('site.list_limit');
         $offset = $this->input->get('per_page');
 		
-		$total = $this->post_model->where('deleted', 0)->where_in('stage', $stages)->count_all();
+		$total = $this->post_model->where('deleted', 0)->where_in('stage', $this->stages)->count_all();
 		
 		$this->pager['base_url'] 			= current_url() .'?';
 		$this->pager['total_rows'] 			= $total;
@@ -59,7 +68,7 @@ class Blog extends Front_Controller
 
         $this->post_model->order_by('release_date', 'DESC')
                                   ->where('deleted', 0)
-                                  ->where_in('stage', $stages);
+                                  ->where_in('stage', $this->stages);
         if($tag = $this->input->get('tag'))
             $this->post_model->where('tags LIKE', "%{$tag}%");
         if($term = $this->input->get('term')){
@@ -159,7 +168,7 @@ class Blog extends Front_Controller
 		if(!empty($_POST['comment_id'])){
     		$data['parent_id']    = $this->input->post('comment_id');
 		}
-		$data['approved'] = 0;
+		$data['approved']       = 0;
 
 		if ($type == 'insert')
 		{
@@ -183,7 +192,7 @@ class Blog extends Front_Controller
     //--------------------------------------------------------------------
     
     private function is_editor(){
-        return $this->auth->has_permission('Images.Content.Edit');
+        return $this->auth->has_permission('Blog.Content.Edit');
     }
 
 }
