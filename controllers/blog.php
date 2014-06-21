@@ -2,6 +2,8 @@
 
 class Blog extends Front_Controller
 {
+    var $pager;
+    var $limit;
     var $stages = array();
 
     public function __construct()
@@ -16,6 +18,27 @@ class Blog extends Front_Controller
         $this->load->helper('form');
         $this->load->helper('sef');
         $this->load->model('comments/comments_model');
+        
+        // Pagination config
+        $this->pager = array(
+            'full_tag_open'     => '<div class="pagination pagination-right"><ul>',
+            'full_tag_close'    => '</ul></div>',
+            'next_link'         => '&rarr;',
+            'prev_link'         => '&larr;',
+            'next_tag_open'     => '<li>',
+            'next_tag_close'    => '</li>',
+            'prev_tag_open'     => '<li>',
+            'prev_tag_close'    => '</li>',
+            'first_tag_open'    => '<li>',
+            'first_tag_close'   => '</li>',
+            'last_tag_open'     => '<li>',
+            'last_tag_close'    => '</li>',
+            'cur_tag_open'      => '<li class="active"><a href="#">',
+            'cur_tag_close'     => '</a></li>',
+            'num_tag_open'      => '<li>',
+            'num_tag_close'     => '</li>',
+        );
+        $this->limit = $this->settings_lib->item('site.list_limit');
 		
         $this->load->model('post_model');
         Assets::add_module_js('comments', array('bootstrap-markdown.js', 'comments.js'));
